@@ -1,18 +1,13 @@
 import React, { useEffect, useRef } from "react"
 import { View, StyleSheet, Text, Dimensions } from "react-native"
 import { Camera } from "expo-camera"
-import * as Permissions from "expo-permissions"
-import CameraStore, { MERGE_STATE, useStore } from "../stores/CameraStore"
+import { setGlobal } from "reactn"
 
 export default function FrontIdCamera(props) {
-  const [state, dispatch] = useStore(CameraStore)
   const camera = useRef(null)
 
   useEffect(() => {
-    dispatch({
-      type: MERGE_STATE,
-      mergeState: { cameraRef: camera.current }
-    })
+    setGlobal({ camera: camera.current })
   }, [camera.current])
 
   return (

@@ -5,9 +5,3 @@ import _App from './src'
 export default function App() {
   return <_App />
 }
-
-const styles = StyleSheet.create({
-  container: {
-
-  },
-});

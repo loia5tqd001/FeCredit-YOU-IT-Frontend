@@ -2,15 +2,21 @@ import React, { useState } from "react"
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
 import * as ImagePicker from "expo-image-picker"
 import { Ionicons, MaterialIcons } from "@expo/vector-icons"
-// import CameraStore, { MERGE_STATE, useStore } from "../stores/CameraStore"
+import { getGlobal } from "reactn"
+import setImage from '../utils/setImage'
 
 function PickImage({ color }) {
+
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [20, 13]
     })
+
+    if (!result.cancelled) {
+      setImage(result)
+    }
   }
 
   return (
@@ -23,37 +29,32 @@ function PickImage({ color }) {
   )
 }
 
-function SnapButton({ camera }) {
-  // const [state] = useStore(CameraStore)
+function SnapButton(props) {
 
   const snap = async () => {
-    // if (state.cameraRef) {
-    //   const photo = await cameraRef.takePictureAsync()
-    //   console.warn(photo)
-    //   console.log(photo)
-    //   // if (photo) {
-    //   //   this.setState({ imageuri: photo.uri })
-    //   // }
-    // }
+    const { camera } = getGlobal() 
+    if (camera) {
+      const photo = await camera.takePictureAsync()
+      if (photo) {
+        setImage(photo)
+      }
+    }
   }
 
   return (
     <TouchableOpacity
-      // onPressIn={onCaptureIn}
-      // onPressOut={onCaptureOut}
-      // onLongPress={onLongCapture}
-      // onPress={onShortCapture}
+      onPress={snap}
       style={styles.captureButton}>
       <MaterialIcons name="center-focus-strong" color="gray" size={30} />
     </TouchableOpacity>
   )
 }
 
-export default function CameraToolbar({ camera }) {
+export default function CameraToolbar(props) {
   return (
     <View style={[styles.center, { marginVertical: 20 }]}>
       <PickImage color="#005C28" />
-      <SnapButton camera={camera} />
+      <SnapButton />
     </View>
   )
 }
