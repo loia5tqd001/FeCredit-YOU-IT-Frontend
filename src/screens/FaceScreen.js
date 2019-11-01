@@ -9,8 +9,6 @@ export default function FaceScreen(props) {
   useEffect(() => {
     setGlobal({
       currentProgress: 4
-    }, () => {
-      console.log("FaceScreen", getGlobal().currentProgress)
     })
   }, [])
 

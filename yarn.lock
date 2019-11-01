@@ -903,7 +903,12 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
-"@react-navigation/core@^5.0.0-alpha.19":
+"@react-native-community/masked-view@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.1.tgz#dbcfc5ec08efbb02d4142dd9426c8d7a396829d7"
+  integrity sha512-EyJVSbarZkOPYq+zCZLx9apMcpwkX9HvH6R+6CeVL29q88kEFemnLO/IhmE4YX/0MfalsduI8eTi7fuQh/5VeA==
+
+"@react-navigation/core@^5.0.0-alpha.17":
   version "5.0.0-alpha.19"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.19.tgz#55bfe0fe98bfc887dbdb8fae3feff539ac8ccb25"
   integrity sha512-abeo829NEZ0kXptvZBwlDEG+HdiaMAv4ZZzDRdAmofzg2uNu/6zSXMdGYd9SgPsJdMN4K7Tb5co93XlChO7/UA==
@@ -913,10 +918,24 @@
     shortid "^2.2.15"
     use-subscription "^1.1.1"
 
-"@react-navigation/native@^5.0.0-alpha.14":
+"@react-navigation/native@^5.0.0-alpha.13":
   version "5.0.0-alpha.14"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.0.0-alpha.14.tgz#55aca201758d9bc5819b67144bf18d5c0fd6140d"
   integrity sha512-yX1kQx4eVZoz5h/9Zra1TvVeId5gTknxsg8h7rAGG8p3dOfyhWLg/7dj5UiuoiPcYNiMHzz71dK/3OZ3gQrX4w==
+
+"@react-navigation/routers@^5.0.0-alpha.11":
+  version "5.0.0-alpha.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.11.tgz#64d76c3ff1a8a738ed8ca9e26ab8d18e1547355f"
+  integrity sha512-0T+tfxvs8uaXZ00jMZ/WGAh4L+0aEeHWjv6qj8xK3Vdet/3GtAxVhpVSL8dPhWJVXnB1bEo4hZaio+PU5r6XoA==
+  dependencies:
+    shortid "^2.2.15"
+
+"@react-navigation/stack@^5.0.0-alpha.29":
+  version "5.0.0-alpha.31"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.0.0-alpha.31.tgz#96da6062ba3986df5358360055e433ad68e7431d"
+  integrity sha512-QDpvIO8egqhG8QALXDF1uEMhgBJcvsq1KpfBYmeHOyGBRgnaABLrCLbAOPdYPx/ZWbmT72ncw/25DIiR9+Y43A==
+  dependencies:
+    "@react-navigation/routers" "^5.0.0-alpha.11"
 
 "@types/fbemitter@^2.0.32":
   version "2.0.32"
@@ -4297,6 +4316,15 @@ react-native-dash@0.0.11:
     prop-types "^15.5.10"
     react-native-measureme "0.0.2"
 
+react-native-gesture-handler@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.3.0.tgz#d0386f565928ccc1849537f03f2e37fd5f6ad43f"
+  integrity sha512-ASRFIXBuKRvqlmwkWJhV8yP2dTpvcqVrLNpd7FKVBFHYWr6SAxjGyO9Ik8w1lAxDhMlRP2IcJ9p9eq5X2WWeLQ==
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+    invariant "^2.2.2"
+    prop-types "^15.5.10"
+
 react-native-masked-text@^1.13.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/react-native-masked-text/-/react-native-masked-text-1.13.0.tgz#533fde8c45ccbaa1d6b0df30bf19b84b4ace3de3"
@@ -4324,12 +4352,29 @@ react-native-picker-modal-view@^1.2.8:
   resolved "https://registry.yarnpkg.com/react-native-picker-modal-view/-/react-native-picker-modal-view-1.2.8.tgz#8faf6dc9db06d5ee2bcf94c95c0c2fb9fa07b2f7"
   integrity sha512-yIvLeXvpd5z0iWVt6mwqouStmPxBdHF/Fgt95KueIQHhSlOT9/eYzVdjZADNJ9jVo/qJWV3TyLf+N+GUt6t+gQ==
 
+react-native-reanimated@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.2.0.tgz#9219227a52a5dfa4d34c324596d6726ccd874293"
+  integrity sha512-vkWRHrPK5qfHP/ZawlRoo38oeYe9NZaaOH/lmFxRcsKzaSK6x3H5ZPXI8lK6MfTLveqwo1QhJje3zIKXO4nQQw==
+
+react-native-safe-area-context@~0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.3.6.tgz#666bf581b59aa49a9685aea4e76dfd6e1c8a8a52"
+  integrity sha512-5wlaJplOlWxBNnjmCtY/FAlsgRDuoKzmLQzbWUw4NDuOa3H2uq1kTdqTWOw78Nzm5FRqGWe1ZSLWU9+nSaN+vA==
+
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.12.0.tgz#5c312f087300ecf82e8541c3eac25d560e147f22"
   integrity sha512-UrAXmBC4KNR5K2eczIDZgqceWyKsgG9gmWFerHCvoyApfei8ceBB9u/c//PWCpS5Gt8MRLTmX5jPtzdXo2yNqg==
   dependencies:
     hoist-non-react-statics "^2.3.1"
+
+react-native-screens@~1.0.0-alpha.23:
+  version "1.0.0-alpha.23"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.23.tgz#25d7ea4d11bda4fcde2d1da7ae50271c6aa636e0"
+  integrity sha512-tOxHGQUN83MTmQB4ghoQkibqOdGiX4JQEmeyEv96MKWO/x8T2PJv84ECUos9hD3blPRQwVwSpAid1PPPhrVEaw==
+  dependencies:
+    debounce "^1.2.0"
 
 react-native-view-shot@2.6.0:
   version "2.6.0"

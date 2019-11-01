@@ -6,6 +6,10 @@ import { DefaultTheme, Provider as PaperProvider } from "react-native-paper"
 import { setGlobal } from "reactn"
 // import Popup from './components/Popup'
 
+import { NavigationNativeContainer } from "@react-navigation/native"
+
+import FrontIdStack from "./navigations/FrontIdStack"
+
 import HomeScreen from "./screens/HomeScreen"
 import FormScreen from "./screens/FormScreen"
 import FrontIdScreen from "./screens/FrontIdScreen"
@@ -45,23 +49,23 @@ export default function App(props) {
         alert("You need to give us permission to Camera and Camera Roll to get the app work properly! Please manually go to Settings and add us permission")
       }
     }
-    
+
     askPermission()
   }, [])
 
-
-
   return (
-    <PaperProvider theme={theme}>
-      <View style={styles.container}>
+    <NavigationNativeContainer>
+      <PaperProvider theme={theme}>
+        {/* <View style={styles.container}> */}
+        <FrontIdStack />
         {/* <HomeScreen /> */}
         {/* <FormScreen /> */}
         {/* <FrontIdScreen /> */}
         {/* <VerifyFrontIdScreen /> */}
         {/* <BackIdScreen /> */}
-        <VerifyBackIdScreen />
+        {/* <VerifyBackIdScreen /> */}
         {/* <FaceScreen /> */}
-
+  
         {/* <Test/> */}
         {/* <FormScreen/> */}
         {/* <VerifyFrontId /> */}
@@ -70,8 +74,9 @@ export default function App(props) {
         {/* <FaceCamera /> */}
         {/* <CameraToolbar /> */}
         {/* <CameraPage /> */}
-      </View>
-    </PaperProvider>
+        {/* </View> */}
+      </PaperProvider>
+    </NavigationNativeContainer>
   )
 }
 

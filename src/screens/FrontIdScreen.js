@@ -5,12 +5,10 @@ import FrontIdCamera from '../components/FrontIdCamera'
 import CameraToolbar from "../components/CameraToolbar"
 import { setGlobal, getGlobal } from "reactn"
 
-export default function FrontIdScreen (props) {
+export default function FrontIdScreen ({ navigation }) {
   useEffect(() => {
     setGlobal({
       currentProgress: 2
-    }, () => {
-      console.log(getGlobal())
     })
   }, [])
 
@@ -25,6 +23,6 @@ export default function FrontIdScreen (props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   }
 })
