@@ -9,7 +9,24 @@ import {
 import { Button, TextInput } from "react-native-paper"
 import { TextInputMask } from "react-native-masked-text"
 import PickerModal from "react-native-picker-modal-view"
-import data from "../../top20"
+// import data from "../../top20"
+const data = [ 
+  {
+    Name: "Hà Nội",
+    Value: "Hà Nội",
+    Id: "Hà Nội",
+  },
+  {
+    Name: "Tp. Hồ Chí Minh",
+    Value: "Tp. Hồ Chí Minh",
+    Id: "Tp. Hồ Chí Minh",
+  },
+  {
+    Name: "Bình Định",
+    Value: "Bình Định",
+    Id: "Bình Định",
+  }
+]
 
 function useName() {
   const [name, setName] = useState("")
@@ -33,10 +50,10 @@ function useDateOfBirth() {
       if (now.getFullYear() - yyyy > 14) return true
       if (now.getFullYear() - yyyy < 14) return false
 
-      if (mm > now.getMonth()) return true
-      if (mm < now.getMonth()) return false
+      if (now.getMonth() > mm) return true
+      if (now.getMonth() > mm) return false
 
-      return dd >= now.getDate()
+      return now.getDate() >= dd
     }
 
     return dob.length === 10 && dobRef.current.isValid() && isEnough14(dob)
@@ -63,14 +80,17 @@ function useRegisterDate(dobString) {
     const isEnough14 = () => {
       const [_d, _m, _y] = registedDate.split("-")
       const [dd, mm, yyyy] = dobString.split("-")
+      
+      // check if registered date is bigger than "now"
+      if (new Date(_y, _m-1, _d) > new Date()) return false
 
       if (_y - yyyy > 14) return true
       if (_y - yyyy < 14) return false
 
-      if (mm > _m) return true
-      if (mm < _m) return false
+      if (_m > mm) return true
+      if (_m < mm) return false
 
-      return dd >= _d
+      return _d >= dd
     }
 
     return (
@@ -111,26 +131,18 @@ export default function FormScreen(props) {
     registedDateRef,
     isRegisterDateValid
   ] = useRegisterDate(dob)
+  const [
+    selectedAddress, 
+    setSelectedAddress
+  ] = useState({})
 
-  const [address, setAddress] = useState("")
-  const addressRef = useRef()
-
-  const [selectedItem, setSelectedItem] = useState({})
-  onClosed = () => {
-    console.log("close key pressed")
-  }
-
-  onSelected = selected => {
-    this.setState({ selectedItem: selected })
-
+  const onAddressSelected = selected => {
+    setSelectedAddress(selected)
     return selected
   }
 
-  onBackButtonPressed = () => {
-    console.log("back key pressed")
-  }
   return (
-    <KeyboardAvoidingView enabled behavior="height" style={styles.container}>
+    <KeyboardAvoidingView enabled behavior="padding" style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollview}>
         <TextInput
           style={styles.input}
@@ -198,26 +210,21 @@ export default function FormScreen(props) {
 
         <PickerModal
           renderSelectView={(disabled, selected, showModal) => (
-            <Button
-              disabled={disabled}
-              title={"Show me!"}
-              onPress={showModal}
+            <TextInput
+              style={styles.input}
+              mode="outlined"
+              label="Nơi ĐKHK thường trú (giống trên CMND) *"
+              value={selectedAddress.Value}
+              onFocus={showModal}
             />
           )}
-          onSelected={onSelected}
-          onClosed={onClosed}
-          onBackButtonPressed={onBackButtonPressed}
+          onSelected={onAddressSelected}
           items={data}
-          sortingLanguage={"tr"}
-          showToTopButton={true}
-          selected={selectedItem}
-          showAlphabeticalIndex={true}
+          showAlphabeticalIndex={false}
           autoGenerateAlphabeticalIndex={true}
-          selectPlaceholderText={"Choose one..."}
-          onEndReached={() => console.log("list ended...")}
-          searchPlaceholderText={"Search..."}
-          requireSelection={false}
-          autoSort={false}
+          searchPlaceholderText="Nhập tỉnh..."
+          selected={selectedAddress}
+          requireSelection={true}
         />
       </ScrollView>
       <Button
@@ -238,6 +245,7 @@ const styles = StyleSheet.create({
   scrollview: {
     width: "100%",
     alignItems: "center",
+    paddingBottom: 20
     // backgroundColor: "blue"
   },
   input: {
