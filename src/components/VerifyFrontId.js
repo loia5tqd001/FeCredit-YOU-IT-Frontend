@@ -4,8 +4,11 @@ import { Camera } from "expo-camera"
 import { setGlobal } from "reactn"
 import getCurrentImageUri from '../utils/getCurrentImageUri'
 import { Button } from 'react-native-paper'
+import { useNavigation } from "@react-navigation/core"
 
 export default function VerifyFrontId(props) {
+  const navigation = useNavigation()
+
   return (
     <View style={styles.container}>
       <Image
@@ -17,12 +20,12 @@ export default function VerifyFrontId(props) {
         <Button
           {...ButtonStyle}
           mode="contained"
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.push("BackIdStack")}
           children="Hoàn tất"
         />
         <Button
           {...ButtonStyle}
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.pop()}
           children="Chụp lại"
         />
       </View>

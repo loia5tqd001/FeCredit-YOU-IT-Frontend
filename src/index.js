@@ -8,15 +8,17 @@ import { setGlobal } from "reactn"
 
 import { NavigationNativeContainer } from "@react-navigation/native"
 
-import FrontIdStack from "./navigations/FrontIdStack"
+// import FrontIdStack from "./navigations/FrontIdStack"
+// import BackIdStack from "./navigations/BackIdStack"
+import MainStack from "./navigations/MainStack"
 
-import HomeScreen from "./screens/HomeScreen"
-import FormScreen from "./screens/FormScreen"
-import FrontIdScreen from "./screens/FrontIdScreen"
-import VerifyFrontIdScreen from "./screens/VerifyFrontIdScreen"
-import BackIdScreen from "./screens/BackIdScreen"
-import VerifyBackIdScreen from "./screens/VerifyBackIdScreen"
-import FaceScreen from "./screens/FaceScreen"
+// import HomeScreen from "./screens/HomeScreen"
+// import FormScreen from "./screens/FormScreen"
+// import FrontIdScreen from "./screens/FrontIdScreen"
+// import VerifyFrontIdScreen from "./screens/VerifyFrontIdScreen"
+// import BackIdScreen from "./screens/BackIdScreen"
+// import VerifyBackIdScreen from "./screens/VerifyBackIdScreen"
+// import FaceScreen from "./screens/FaceScreen"
 
 setGlobal({
   hasPermission: null,
@@ -57,7 +59,8 @@ export default function App(props) {
     <NavigationNativeContainer>
       <PaperProvider theme={theme}>
         {/* <View style={styles.container}> */}
-        <FrontIdStack />
+        {/* <FrontIdStack /> */}
+        <MainStack />
         {/* <HomeScreen /> */}
         {/* <FormScreen /> */}
         {/* <FrontIdScreen /> */}
@@ -65,7 +68,7 @@ export default function App(props) {
         {/* <BackIdScreen /> */}
         {/* <VerifyBackIdScreen /> */}
         {/* <FaceScreen /> */}
-  
+
         {/* <Test/> */}
         {/* <FormScreen/> */}
         {/* <VerifyFrontId /> */}

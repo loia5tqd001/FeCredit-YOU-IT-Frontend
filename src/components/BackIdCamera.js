@@ -1,10 +1,14 @@
-import React, { useState, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { View, StyleSheet, Text, Dimensions } from "react-native"
 import { Camera } from "expo-camera"
-import * as Permissions from "expo-permissions"
+import { setGlobal } from "reactn"
 
 export default function BackIdCamera(props) {
   const camera = useRef(null)
+
+  useEffect(() => {
+    setGlobal({ camera: camera.current })
+  }, [camera.current])
 
   return (
     <View style={styles.container}>

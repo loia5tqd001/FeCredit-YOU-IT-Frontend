@@ -4,8 +4,10 @@ import * as ImagePicker from "expo-image-picker"
 import { Ionicons, MaterialIcons } from "@expo/vector-icons"
 import { getGlobal } from "reactn"
 import setImage from '../utils/setImage'
+import { useNavigation } from "@react-navigation/core"
 
 function PickImage({ color }) {
+  const navigation = useNavigation()
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -16,6 +18,7 @@ function PickImage({ color }) {
 
     if (!result.cancelled) {
       setImage(result)
+      navigation.push("VerifyFrontIdScreen")
     }
   }
 
@@ -30,21 +33,22 @@ function PickImage({ color }) {
 }
 
 function SnapButton(props) {
+  const navigation = useNavigation()
 
   const snap = async () => {
     const { camera } = getGlobal() 
+    console.log(getGlobal())
     if (camera) {
       const photo = await camera.takePictureAsync()
       if (photo) {
         setImage(photo)
+        navigation.push("VerifyFrontIdScreen")
       }
     }
   }
 
   return (
-    <TouchableOpacity
-      onPress={snap}
-      style={styles.captureButton}>
+    <TouchableOpacity onPress={snap} style={styles.captureButton}>
       <MaterialIcons name="center-focus-strong" color="gray" size={30} />
     </TouchableOpacity>
   )

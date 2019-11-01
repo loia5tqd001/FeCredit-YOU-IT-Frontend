@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { Button } from "react-native-paper"
 
-export default function HomeScreen (props) {
+export default function HomeScreen ({ navigation }) {
   return (
     <View style={styles.container}>
       <Button
         style={styles.button}
         mode="contained"
-        onPress={() => console.log("go to next window")}>
+        onPress={() => navigation.push("FrontIdStack")}>
         <Text style={styles.buttonLabel} children="BẮT ĐẦU"/>
       </Button>
     </View>
