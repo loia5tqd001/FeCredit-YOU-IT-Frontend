@@ -2,7 +2,7 @@ import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
 
 import BackIdScreen from "../screens/BackIdScreen"
-import VerifyFrontIdScreen from "../screens/VerifyFrontIdScreen"
+import VerifyBackIdScreen from "../screens/VerifyBackIdScreen"
 
 const BackIdStack = createStackNavigator()
 
@@ -14,8 +14,8 @@ export default function _BackIdStack() {
         component={BackIdScreen} 
       />
       <BackIdStack.Screen
-        name="VerifyFrontIdScreen"
-        component={VerifyFrontIdScreen}
+        name="VerifyBackIdScreen"
+        component={VerifyBackIdScreen}
       />
     </BackIdStack.Navigator>
   )

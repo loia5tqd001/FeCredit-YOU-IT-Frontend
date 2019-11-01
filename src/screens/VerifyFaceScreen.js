@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { View, StyleSheet, Text } from "react-native"
 import TimelineComponent from "../components/TimelineComponent"
-import VerifyBackId from "../components/VerifyBackId"
+import VerifyFace from "../components/VerifyFace"
 
-export default function VerifyBackIdScreen(props) {
+export default function VerifyFaceScreen(props) {
   return (
     <View style={styles.container}>
       <TimelineComponent />
-      <VerifyBackId />
+      <VerifyFace />
     </View>
   )
 }

@@ -2,7 +2,7 @@ import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
 
 import FaceScreen from "../screens/FaceScreen"
-import VerifyFrontIdScreen from "../screens/VerifyFrontIdScreen"
+import VerifyFaceScreen from "../screens/VerifyFaceScreen"
 
 const FaceStack = createStackNavigator()
 
@@ -14,8 +14,8 @@ export default function _FaceStack() {
         component={FaceScreen} 
       />
       <FaceStack.Screen
-        name="VerifyFrontIdScreen"
-        component={VerifyFrontIdScreen}
+        name="VerifyFaceScreen"
+        component={VerifyFaceScreen}
       />
     </FaceStack.Navigator>
   )

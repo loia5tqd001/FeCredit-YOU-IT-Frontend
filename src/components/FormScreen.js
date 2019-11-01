@@ -9,6 +9,7 @@ import {
 import { Button, TextInput } from "react-native-paper"
 import { TextInputMask } from "react-native-masked-text"
 import PickerModal from "react-native-picker-modal-view"
+import { useNavigation } from "@react-navigation/core"
 // import data from "../../top20"
 
 const data = [ 
@@ -133,6 +134,7 @@ export default function FormScreen(props) {
     selectedAddress, 
     setSelectedAddress
   ] = useState({})
+  const navigation = useNavigation()
 
   const onAddressSelected = selected => {
     setSelectedAddress(selected)
@@ -228,7 +230,7 @@ export default function FormScreen(props) {
       <Button
         style={styles.nextButton}
         mode="contained"
-        onPress={() => console.log("go to next window")}>
+        onPress={() => navigation.push("FrontIdStack")}>
         <Text style={{ fontSize: 25 }} children="TIẾP TỤC" />
       </Button>
     </KeyboardAvoidingView>

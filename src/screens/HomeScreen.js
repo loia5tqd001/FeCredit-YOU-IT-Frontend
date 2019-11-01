@@ -8,7 +8,7 @@ export default function HomeScreen ({ navigation }) {
       <Button
         style={styles.button}
         mode="contained"
-        onPress={() => navigation.push("FrontIdStack")}>
+        onPress={() => navigation.push("FormScreen")}>
         <Text style={styles.buttonLabel} children="BẮT ĐẦU"/>
       </Button>
     </View>
