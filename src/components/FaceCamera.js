@@ -32,7 +32,7 @@ export default function FaceCamera(props) {
       }
     }
 
-    setHasFace(newHasFace)
+    // setHasFace(newHasFace)
   }
 
   return (
@@ -49,7 +49,7 @@ export default function FaceCamera(props) {
           ref={camera}
           onFacesDetected={handleFacesDetected}
           faceDetectorSettings={{
-            mode: FaceDetector.Constants.Mode.fast
+            mode: FaceDetector.Constants.Mode.accurate
           }}
           minDetectionInterval={100}
         />

@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import { View, StyleSheet, Text, Dimensions, Image } from "react-native"
-import { Camera } from "expo-camera"
-import { setGlobal } from "reactn"
 import getCurrentImageUri from '../utils/getCurrentImageUri'
 import { Button } from 'react-native-paper'
 import { useNavigation } from "@react-navigation/core"
+import { goNext } from "../utils/navigations"
 
 export default function VerifyFrontId(props) {
   const navigation = useNavigation()
@@ -20,7 +19,7 @@ export default function VerifyFrontId(props) {
         <Button
           {...ButtonStyle}
           mode="contained"
-          onPress={() => navigation.push("BackIdStack")}
+          onPress={() => goNext(navigation)}
           children="Hoàn tất"
         />
         <Button

@@ -10,6 +10,7 @@ import { Button, TextInput } from "react-native-paper"
 import { TextInputMask } from "react-native-masked-text"
 import PickerModal from "react-native-picker-modal-view"
 import { useNavigation } from "@react-navigation/core"
+import { goNext } from '../utils/navigations'
 // import data from "../../top20"
 
 const data = [ 
@@ -230,7 +231,7 @@ export default function FormScreen(props) {
       <Button
         style={styles.nextButton}
         mode="contained"
-        onPress={() => navigation.push("FrontIdStack")}>
+        onPress={() => goNext(navigation)}>
         <Text style={{ fontSize: 25 }} children="TIẾP TỤC" />
       </Button>
     </KeyboardAvoidingView>

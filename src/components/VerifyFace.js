@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react"
-import { View, StyleSheet, Text, Dimensions, Image } from "react-native"
+import React from "react"
+import { View, StyleSheet, Dimensions, Image } from "react-native"
 import getCurrentImageUri from "../utils/getCurrentImageUri"
 import { Button } from "react-native-paper"
 import { useNavigation } from "@react-navigation/core"

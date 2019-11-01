@@ -51,7 +51,7 @@ export default function App(props) {
       <PaperProvider theme={theme}>
         {/* <View style={styles.container}> */}
         {/* <MainStack /> */}
-        <FaceStack />
+        <MainStack />
 
         {/* </View> */}
       </PaperProvider>
