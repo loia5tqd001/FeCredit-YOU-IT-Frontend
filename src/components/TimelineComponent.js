@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { View, StyleSheet, Dimensions, Text } from "react-native"
 import Dash from "react-native-dash"
-import { getGlobal } from "reactn"
+import { useGlobal } from "reactn"
 
 function Item({ color, string }) {
   const ITEM_RADIUS = 10
@@ -33,10 +33,12 @@ function Item({ color, string }) {
 }
 
 export default function TimelineComponent() {
+  const [globalCurrentProgress,] = useGlobal("currentProgress")
+
   const getColor = progress => {
     colors = { active: "#005C28", inactive: "gray" }
 
-    if (progress <= getGlobal().currentProgress) {
+    if (progress <= globalCurrentProgress) {
       return colors.active
     } else {
       return colors.inactive

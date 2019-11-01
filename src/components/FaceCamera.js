@@ -21,11 +21,11 @@ export default function FaceCamera(props) {
       const { rollAngle, yawAngle } = faces[0]
 
       if (
-        x > 0 &&
-        y > 0 &&
-        x + width < camSize &&
-        y + height < camSize &&
-        Math.abs(rollAngle) < 2.4 &&
+        x > -50 &&
+        y > -50 &&
+        x + width < camSize + 100 &&
+        y + height < camSize + 100 &&
+        // Math.abs(rollAngle) < 2.4 &&
         Math.abs(yawAngle) < 12
       ) {
         newHasFace = true
@@ -49,8 +49,9 @@ export default function FaceCamera(props) {
           ref={camera}
           onFacesDetected={handleFacesDetected}
           faceDetectorSettings={{
-            mode: FaceDetector.Constants.Mode.accurate,
+            mode: FaceDetector.Constants.Mode.fast
           }}
+          minDetectionInterval={100}
         />
       </View>
       <Text style={styles.text} children="Đặt khuôn mặt vào khung" />

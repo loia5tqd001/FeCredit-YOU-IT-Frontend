@@ -10,6 +10,7 @@ import { Button, TextInput } from "react-native-paper"
 import { TextInputMask } from "react-native-masked-text"
 import PickerModal from "react-native-picker-modal-view"
 // import data from "../../top20"
+
 const data = [ 
   {
     Name: "Hà Nội",
@@ -104,9 +105,6 @@ function useRegisterDate(dobString) {
 }
 
 export default function FormScreen(props) {
-  // const [name, setName] = useState("")
-  // const nameRef = useRef()
-
   const [
     name, 
     setName, 

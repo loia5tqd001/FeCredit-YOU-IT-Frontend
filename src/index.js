@@ -2,25 +2,22 @@ import React, { useEffect, useState } from "react"
 import { View, Text, StyleSheet } from "react-native"
 import Constants from "expo-constants"
 import * as Permissions from "expo-permissions"
-
-import TimelineComponent from "./components/TimelineComponent"
-import CameraToolbar from "./components/CameraToolbar"
-import FrontIdCamera from "./components/FrontIdCamera"
-// import CameraPage from "./src/components/camera"
-// import ImagePicker from "./src/components/ImagePicker"
-// import BackIdCamera from "./src/components/BackIdCamera"
-import VerifyFrontId from "./components/VerifyFrontId"
-import FaceCamera from "./components/FaceCamera"
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper"
 import { setGlobal } from "reactn"
 // import Popup from './components/Popup'
-// import HomeScreen from "./components/HomeScreen"
-import FormScreen from "./components/FormScreen"
+
+import HomeScreen from "./screens/HomeScreen"
+import FormScreen from "./screens/FormScreen"
+import FrontIdScreen from "./screens/FrontIdScreen"
+import VerifyFrontIdScreen from "./screens/VerifyFrontIdScreen"
+import BackIdScreen from "./screens/BackIdScreen"
+import VerifyBackIdScreen from "./screens/VerifyBackIdScreen"
+import FaceScreen from "./screens/FaceScreen"
 
 setGlobal({
   hasPermission: null,
   camera: null,
-  currentProgress: 2,
+  currentProgress: 0,
   frontIdUri: "",
   backIdUri: "",
   faceUri: ""
@@ -57,10 +54,16 @@ export default function App(props) {
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <TimelineComponent />
-        {/* <HomeScreen/> */}
+        {/* <HomeScreen /> */}
+        {/* <FormScreen /> */}
+        {/* <FrontIdScreen /> */}
+        {/* <VerifyFrontIdScreen /> */}
+        {/* <BackIdScreen /> */}
+        <VerifyBackIdScreen />
+        {/* <FaceScreen /> */}
+
         {/* <Test/> */}
-        <FormScreen/>
+        {/* <FormScreen/> */}
         {/* <VerifyFrontId /> */}
         {/* <FrontIdCamera />   */}
         {/* <BackIdCamera /> */}
