@@ -7,6 +7,7 @@ export default function HomeScreen ({ navigation }) {
     <View style={styles.container}>
       <Button
         style={styles.button}
+        contentStyle={{ margin: 10 }}
         mode="contained"
         onPress={() => navigation.push("FormScreen")}>
         <Text style={styles.buttonLabel} children="BẮT ĐẦU"/>
@@ -22,8 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   button: {
-    width: 250,
-    padding: 10,
+    width: 250
   },
   buttonLabel: {
     fontSize: 25

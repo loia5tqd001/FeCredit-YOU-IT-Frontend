@@ -10,7 +10,7 @@ export default function FaceCamera(props) {
 
   useEffect(() => {
     setGlobal({ camera: camera.current })
-  }, [camera.current])
+  }, [camera])
 
   const handleFacesDetected = ({ faces }) => {
     let newHasFace = false
@@ -32,7 +32,7 @@ export default function FaceCamera(props) {
       }
     }
 
-    // setHasFace(newHasFace)
+    setHasFace(newHasFace)
   }
 
   return (

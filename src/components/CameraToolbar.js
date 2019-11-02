@@ -6,21 +6,21 @@ import { getGlobal } from "reactn"
 import setImage from '../utils/setImage'
 import { useNavigation } from "@react-navigation/core"
 
-function navigateToNextStep (navigation) {
-  switch (getGlobal().currentProgress) {
-    case 2:
-      navigation.push("VerifyFrontIdScreen")
-      break
-    case 3:
-      navigation.push("VerifyBackIdScreen")
-      break
-    case 4:
-      navigation.push("VerifyFaceScreen")
-      break
-    default:
-      console.warn("Something's wrong in ./src/components/CameraToolbar.js -> navigateToNextStep")
-  }
-}
+// function navigateToNextStep (navigation) {
+//   switch (getGlobal().currentProgress) {
+//     case 2:
+//       navigation.push("VerifyFrontIdScreen")
+//       break
+//     case 3:
+//       navigation.push("VerifyBackIdScreen")
+//       break
+//     case 4:
+//       navigation.push("VerifyFaceScreen")
+//       break
+//     default:
+//       console.warn("Something's wrong in ./src/components/CameraToolbar.js -> navigateToNextStep")
+//   }
+// }
 
 function PickImage({ color }) {
   const navigation = useNavigation()
@@ -34,7 +34,8 @@ function PickImage({ color }) {
 
     if (!result.cancelled) {
       setImage(result)
-      navigateToNextStep(navigation)
+      navigation.push("VerifyScreen")
+      // navigateToNextStep(navigation)
     }
   }
 
@@ -58,7 +59,8 @@ function SnapButton(props) {
       const photo = await camera.takePictureAsync()
       if (photo) {
         setImage(photo)
-        navigateToNextStep(navigation)
+        navigation.push("VerifyScreen")
+        // navigateToNextStep(navigation)
       }
     }
   }

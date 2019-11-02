@@ -230,6 +230,7 @@ export default function FormScreen(props) {
       </ScrollView>
       <Button
         style={styles.nextButton}
+        contentStyle={{ margin: 10 }}
         mode="contained"
         onPress={() => goNext(navigation)}>
         <Text style={{ fontSize: 25 }} children="TIẾP TỤC" />
@@ -256,7 +257,6 @@ const styles = StyleSheet.create({
   nextButton: {
     position: "absolute",
     bottom: 0,
-    width: "100%",
-    padding: 10
+    width: "100%"
   }
 })

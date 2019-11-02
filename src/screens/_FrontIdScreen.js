@@ -5,7 +5,7 @@ import FrontIdCamera from '../components/FrontIdCamera'
 import CameraToolbar from "../components/CameraToolbar"
 import { setGlobal, getGlobal } from "reactn"
 
-export default function FrontIdScreen ({ navigation }) {
+export default function FrontIdScreen (props) {
   useEffect(() => {
     setGlobal({
       currentProgress: 2
